@@ -29,7 +29,7 @@ var collectionCopy = JSON.parse(JSON.stringify(collection));
 // Only change code below this line
 function updateRecords(id, prop, value) {
   // If prop isn't tracks and value isn't empty
-  if (prop !== "tracks" && value !== null) {
+  if (prop !== "tracks" && value !== "") {
       // Update or set the value for that record album's property
       collection[id][prop] = value
       console.log(collection)
@@ -42,8 +42,20 @@ function updateRecords(id, prop, value) {
       collection[id][prop] = tracks
       console.log(collection)
   }
+  // If prop is "tracks" and value isn't empty ("")
+  else if (prop === "tracks" && value !== "") {
+    // Push the value onto the end of the album's existing tracks array
+    collection[id]["tracks"].push(value)
+    console.log(collection)
+  }
+  // If value is empty (""), delete the given prop property from the album
+  else if (value === "") {
+    console.log('here')
+    delete collection[id][prop]
+    console.log(collection)
+  }
   return collection;
 }
 
 // Alter values below to test your code
-updateRecords(5439, "tracks", "Take A Chance On Me");
+updateRecords(2548, "tracks", "");
