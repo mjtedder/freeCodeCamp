@@ -1,6 +1,5 @@
 //Setup
-var contacts = [
-    {
+var contacts = [{
         "firstName": "Akira",
         "lastName": "Laine",
         "number": "0543236543",
@@ -27,20 +26,24 @@ var contacts = [
 ];
 
 // The function should check:
-function lookUpProfile(name, prop){
+function lookUpProfile(name, prop) {
     // If name is an actual contact's firstName and the given property (prop) is a property of that contact.
-    if (contacts[name] === contacts["firstName"] && prop.hasOwnProperty) {
-        console.log (prop)
+        for (i = 0; i < contacts.length; i++) {
+            if (name === contacts[i].firstName) {
+                console.log('name exists!')
+                if (contacts[i].hasOwnProperty(prop)) {
+                    // If both are true, then return the "value" of that property.
+                    console.log(contacts[i][prop])
+                } else {
+                    console.log('error')
+                }
+            }
+        }
     }
-    // If both are true, then return the "value" of that property.
-    /* contacts.forEach(function(name) {
-        var x = name.prop + 2;
-        console.log(x)
-    }) */
-    // If name does not correspond to any contacts then return "No such contact"
 
-    // If prop does not correspond to any valid properties of a contact found to match name then return "No such property"
-}
+// If name does not correspond to any contacts then return "No such contact"
+
+// If prop does not correspond to any valid properties of a contact found to match name then return "No such property"
 
 // Change these values to test your function
-lookUpProfile("Akira", "likes");
+lookUpProfile("Harry", "likes");
