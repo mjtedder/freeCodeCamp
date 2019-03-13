@@ -26,10 +26,17 @@ var contacts = [
     }
 ];
 
-// The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+// The function should check:
 function lookUpProfile(name, prop){
+    // If name is an actual contact's firstName and the given property (prop) is a property of that contact.
+    if (contacts[name] === contacts["firstName"] && prop.hasOwnProperty) {
+        console.log (prop)
+    }
     // If both are true, then return the "value" of that property.
-
+    /* contacts.forEach(function(name) {
+        var x = name.prop + 2;
+        console.log(x)
+    }) */
     // If name does not correspond to any contacts then return "No such contact"
 
     // If prop does not correspond to any valid properties of a contact found to match name then return "No such property"
